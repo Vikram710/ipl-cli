@@ -24,7 +24,12 @@ npm link
 npm unlink
 ```
 
-## ClI Commands
+## CLI Commands
 ```
 ipl-cli --help ( to see the list of commands and description )
 ```
+## Features
+- Live Score updates 
+- Match information
+- Scorecard
+- Points Table
