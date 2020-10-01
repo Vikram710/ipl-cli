@@ -321,7 +321,6 @@ exports.getScorecard = async () => {
 		$('a.cb-mtch-lnks').each((i, ele) => {
 			if (i == 1) liveUrl += $(ele).attr('href');
 		});
-		console.log(liveUrl);
 		if (!liveUrl.includes('indian-premier-league'))
 			return {
 				noIPL: true,
@@ -380,4 +379,62 @@ exports.printDetailedInfo = (data) => {
 	console.log(stringDivider(data.team1Squad, 60) + '\n');
 	console.log(chalk`{bold.cyan ${data.team2}}`);
 	console.log(stringDivider(data.team2Squad, 60));
+};
+
+exports.printScoreCard = (data, width) => {
+	if (width < 100) {
+		if (data.innings1Batting) {
+			data.innings1Batting.forEach((ele) => {
+				delete ele['4s'];
+				delete ele['6s'];
+				delete ele['SR'];
+			});
+		}
+		if (data.innings2Batting) {
+			data.innings2Batting.forEach((ele) => {
+				delete ele['4s'];
+				delete ele['6s'];
+				delete ele['SR'];
+			});
+		}
+		if (data.innings1Bowling) {
+			data.innings1Bowling.forEach((ele) => {
+				delete ele['NB'];
+				delete ele['WD'];
+			});
+		}
+		if (data.innings2Bowling) {
+			data.innings2Bowling.forEach((ele) => {
+				delete ele['NB'];
+				delete ele['WD'];
+			});
+		}
+	}
+	if (data.innings1Batting) {
+		console.log(chalk`{bold.greenBright ${data.innings1Team}}`);
+		console.table(data.innings1Batting);
+		console.log(chalk`{bold.cyan Total: }` + data.innings1Total);
+		console.log(chalk`{bold.cyan Extras: }` + data.innings1Extras);
+		console.log(chalk`{bold.cyan Fall of wickets: }` + stringDivider(data.innings1Fall, 60));
+		console.log(chalk`{bold.cyan Yet to bat: }` + stringDivider(data.innings1NoBat, 60));
+		console.table(data.innings1Bowling);
+	} else {
+		console.log(chalk`{bold.red Innings 1 yet to start}`);
+	}
+
+	if (data.innings2Batting) {
+		console.log(chalk`{bold.greenBright ${data.innings2Team}}`);
+		console.table(data.innings2Batting);
+		console.log(chalk`{bold.cyan Total: }` + data.innings2Total);
+		console.log(chalk`{bold.cyan Extras: }` + data.innings2Extras);
+		console.log(chalk`{bold.cyan Fall of wickets: }` + stringDivider(data.innings2Fall, 60));
+		console.log(chalk`{bold.cyan Yet to bat: }` + stringDivider(data.innings2NoBat, 60));
+		console.table(data.innings2Bowling);
+	} else {
+		console.log(chalk`{bold.red Innings 2 yet to start}`);
+	}
+
+	if (width < 100) {
+		console.log(chalk`{bold.yellowBright To view full scorecard please increase terminal width > 100 columns}`);
+	}
 };

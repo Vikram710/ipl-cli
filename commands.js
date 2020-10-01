@@ -12,6 +12,7 @@ const {
 	printTable,
 	printShortInfo,
 	printDetailedInfo,
+	printScoreCard,
 } = require('./ipl20');
 
 program.version('1.0.0').description('IPL Live Score CLI');
@@ -86,7 +87,7 @@ program
 				...innings1(html),
 				...innings2(html),
 			};
-			console.log(data);
+			printScoreCard(data, process.stdout.columns);
 		}
 	});
 
