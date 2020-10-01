@@ -1,0 +1,21 @@
+{
+	"name": "ipl-cli",
+	"version": "1.0.0",
+	"description": "Live IPL scores CLI",
+	"preferGlobal": true,
+	"bin": "./commands.js",
+	"keywords": [],
+	"author": "",
+	"scripts": {
+		"fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --use-tabs --write \"**/*.js\""
+	},
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^0.20.0",
+		"chalk-table": "^1.0.2",
+		"cheerio": "^1.0.0-rc.3",
+		"commander": "^6.1.0",
+		"lodash": "^4.17.20",
+		"prettier": "^2.1.2"
+	}
+}
