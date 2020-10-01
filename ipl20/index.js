@@ -25,6 +25,7 @@ exports.innings1 = (html) => {
 	let temp_bwl = {};
 	let bowling = false;
 	let bowlingStart = 0;
+	if (!$('div#innings_1 div.cb-ltst-wgt-hdr div.cb-col div.cb-col').text()) return {};
 	$('div#innings_1 div.cb-ltst-wgt-hdr div.cb-col div.cb-col').each((i, ele) => {
 		if (bowling) {
 			if (i - bowlingStart > 7) {
@@ -93,6 +94,7 @@ exports.innings2 = (html) => {
 	let temp_bwl = {};
 	let bowling = false;
 	let bowlingStart = 0;
+	if (!$('div#innings_2 div.cb-ltst-wgt-hdr div.cb-col div.cb-col').text()) return {};
 	$('div#innings_2 div.cb-ltst-wgt-hdr div.cb-col div.cb-col').each((i, ele) => {
 		if (bowling) {
 			if (i - bowlingStart > 7) {
@@ -319,6 +321,7 @@ exports.getScorecard = async () => {
 		$('a.cb-mtch-lnks').each((i, ele) => {
 			if (i == 1) liveUrl += $(ele).attr('href');
 		});
+		console.log(liveUrl);
 		if (!liveUrl.includes('indian-premier-league'))
 			return {
 				noIPL: true,

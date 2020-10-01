@@ -98,18 +98,17 @@ program
 		const fetchData = async () => {
 			let data;
 			try {
-				data = await matchInfo();
+				data = await shortInfo();
 			} catch (err) {
 				console.log(err);
 			}
 			if (data.noIPL) {
-				// console.clear()
 				console.log(chalk`{red.bold ${data.message}}`);
 			} else {
-				// console.clear()
-				printDetailedInfo(data);
+				console.clear();
+				printShortInfo(data);
 			}
-			setTimeout(fetchData, 1000);
+			setTimeout(fetchData, 20000);
 		};
 		setTimeout(fetchData, 1000);
 	});
