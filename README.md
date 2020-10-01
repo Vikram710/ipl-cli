@@ -14,7 +14,6 @@ npm >= 6.14
 git clone https://github.com/vikram710/ipl-cli
 cd ipl-cli
 npm install
-npm start
 npm link
 ```
 

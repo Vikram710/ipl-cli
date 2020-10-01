@@ -129,7 +129,7 @@ exports.innings2 = (html) => {
 	}
 
 	let key = data.innings2Batting.length - 2;
-	if (data.innings2Batting[key]['batsman'] != 'Extras') {
+	if (data.innings2Batting[key]['Batsman'] != 'Extras') {
 		key = data.innings2Batting.length - 1;
 	} else data.innings2NoBat = data.innings2Batting[data.innings2Batting.length - 1]['Batsman'];
 	data.innings2Extras = data.innings2Batting[key]['Status'] + ' ' + data.innings2Batting[key]['R'];
