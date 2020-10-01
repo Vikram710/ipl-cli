@@ -32,3 +32,10 @@ ipl-cli --help ( to see the list of commands and description )
 - Match information
 - Scorecard
 - Points Table
+
+# Demo
+<img src="./screenshots/live.png" alt="live">
+<img src="./screenshots/short-info.png" alt="info">
+<img src="./screenshots/fact.png" alt="facts">
+<img src="./screenshots/scorecard.png" alt="scorecard">
+<img src="./screenshots/points-table.png" alt="points_table">

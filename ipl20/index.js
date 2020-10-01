@@ -161,7 +161,7 @@ exports.matchInfo = async () => {
 		response = await axios.get(liveUrl);
 		html = response.data;
 	} catch (err) {
-		console.log(err);
+		console.log(chalk`{bold.red Error}`);
 	}
 
 	const $ = cheerio.load(html);
@@ -194,7 +194,7 @@ exports.shortInfo = async () => {
 		response = await axios.get(mainUrl + '/live-cricket-scores/');
 		html = response.data;
 	} catch (err) {
-		console.log(err);
+		console.log(chalk`{bold.red Error}`);
 	}
 
 	const $ = cheerio.load(html);
@@ -275,7 +275,7 @@ exports.pointsTable = async (width) => {
 		response = await axios.get(pointsTableUrl);
 		html = response.data;
 	} catch (err) {
-		console.log(err);
+		console.log(chalk`{bold.red Error}`);
 	}
 	const $ = cheerio.load(html);
 	let data = {};
@@ -329,7 +329,7 @@ exports.getScorecard = async () => {
 		response = await axios.get(liveUrl);
 		html = response.data;
 	} catch (err) {
-		console.log(err);
+		console.log(chalk`{bold.red Error}`);
 	}
 	return html;
 };

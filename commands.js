@@ -26,7 +26,7 @@ program
 		try {
 			data = await shortInfo();
 		} catch (err) {
-			console.log(err);
+			console.log(chalk`{bold.red Error}`);
 		}
 		if (data.noIPL) {
 			console.log(chalk`{red.bold ${data.message}}`);
@@ -44,7 +44,7 @@ program
 		try {
 			data = await matchInfo();
 		} catch (err) {
-			console.log(err);
+			console.log(chalk`{bold.red Error}`);
 		}
 		if (data.noIPL) {
 			console.log(chalk`{red.bold ${data.message}}`);
@@ -62,7 +62,7 @@ program
 		try {
 			data = await pointsTable(process.stdout.columns);
 		} catch (err) {
-			console.log(err);
+			console.log(chalk`{bold.red Error}`);
 		}
 		printTable(data.table);
 	});
@@ -76,7 +76,7 @@ program
 		try {
 			html = await getScorecard();
 		} catch (err) {
-			console.log(err);
+			console.log(chalk`{bold.red Error}`);
 		}
 		if (typeof html == 'object') {
 			if (html.noIPL) {
@@ -101,7 +101,7 @@ program
 			try {
 				data = await shortInfo();
 			} catch (err) {
-				console.log(err);
+				console.log(chalk`{bold.red Error}`);
 			}
 			if (data.noIPL) {
 				console.log(chalk`{red.bold ${data.message}}`);
